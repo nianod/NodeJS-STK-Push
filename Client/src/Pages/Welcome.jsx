@@ -1,6 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 
 
 const Welcome = () => {
+
+  const navigate = useNavigate()
+
+  const handleProceed = () => {
+    navigate('/register')
+  }  
+
   return (
     <div>
       <strong className="mt-5 flex justify-center text-amber-500 text-3xl">Welcome to Blogging Plartform</strong>
@@ -9,7 +17,9 @@ const Welcome = () => {
         <h1 className="text-white text-2xl font-bold">Proceed to Sign up</h1>
         <button
           className="p-2 rounded text-white bg-amber-800 cursor-pointer hover:bg-amber-700 font-bold mt-3"
-        >Proceed</button>
+          onClick={handleProceed}
+        >
+          Proceed</button>
       </div>
     </div>
   )
