@@ -10,9 +10,19 @@ const Register = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
-    const handleRegister = (e) => {
+    const handleRegister = (event) => {
+      event.preventDefault()
       setLoading(true)
-      e.preventDefault()
+
+      if(!firstName || !email || !password1 || !password2) {
+        setError('All Fields required')
+        setLoading(false)
+      }
+
+      if(password1 !== password2) {
+        setError('passwords do not match')
+        setLoading(false)
+      }
     }
 
   return (
@@ -26,6 +36,8 @@ const Register = () => {
          placeholder="Enter your Full name"
          value={firstName}
          onChange={(e) => setFirstName(e.target.value)} 
+         required
+         autoComplete='username'
         />
         <label className="block font-semibold">Email:</label>
         <input
@@ -34,6 +46,8 @@ const Register = () => {
          placeholder="Enter your email"
          value={email}
          onChange={(e) => setEmail(e.target.value)} 
+         required
+         autoComplete="email"
         />
         <label className="block font-semibold">Password:</label>
         <input
@@ -42,6 +56,8 @@ const Register = () => {
          placeholder="Enter your password"
          value={password1}
          onChange={(e) => setPassword1(e.target.value)} 
+         required
+         autoComplete="new-password"
         />
         <label className="block font-semibold">Confirm Password:</label>
         <input
@@ -50,6 +66,8 @@ const Register = () => {
          placeholder="Confirm your password"
          value={password2}
          onChange={(e) => setPassword2(e.target.value)} 
+         required
+         autoComplete="new-password"
         />
         {error && (
           <p className="text-red-600 flex justify-center">{error}</p>
