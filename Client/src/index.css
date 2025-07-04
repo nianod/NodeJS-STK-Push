@@ -2,7 +2,11 @@
 
 :root {
   --backgound : #2596be;
+  --shadow: 0 0 10px rgba(0,0,0,0.5)
 }
 body {
   background-color: #2596be;
+}
+.register {
+  box-shadow: var(--shadow);
 }
