@@ -1,34 +1,35 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom'
 
 const Register = () => {
+
     const [firstName, setFirstName] = useState('')
-    const [secondName, setSecondName] = useState('')
     const [email, setEmail] = useState('')
     const [password1, setPassword1] = useState('')
     const [password2, setPassword2] = useState('')
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+
+    const handleRegister = (e) => {
+      setLoading(true)
+      e.preventDefault()
+    }
+
   return (
     <div className="flex align-center justify-center">
       <form className="max-w-xs w-full flex flex-col gap-1 p-3 mt-15 shadow-md rounded-md bg-white">
         <h1 className="font-bold text-center text-2xl ">Register</h1>
-        <label className="block font-semibold">First Name:</label>
+        <label className="block font-semibold">Full Name:</label>
         <input
-         className="border-[1.5px] rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
+         className=" border-[1.5px] rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
          type="text"
-         placeholder="Enter your First name"
+         placeholder="Enter your Full name"
          value={firstName}
          onChange={(e) => setFirstName(e.target.value)} 
         />
-        <label className="block font-semibold">Second Name:</label>
-        <input
-         className="border p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
-         type="text"
-         placeholder="Enter your second name"
-         value={secondName}
-         onChange={(e) => setSecondName(e.target.value)} 
-        />
         <label className="block font-semibold">Email:</label>
         <input
-         className="border p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
+         className=" border-[1.5px] rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
          type="email"
          placeholder="Enter your email"
          value={email}
@@ -36,7 +37,7 @@ const Register = () => {
         />
         <label className="block font-semibold">Password:</label>
         <input
-         className="border p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
+         className=" border-[1.5px] rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
          type="password"
          placeholder="Enter your password"
          value={password1}
@@ -44,12 +45,30 @@ const Register = () => {
         />
         <label className="block font-semibold">Confirm Password:</label>
         <input
-         className="border p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
+         className=" border-[1.5px] rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-[#2596be]"
          type="password"
          placeholder="Confirm your password"
          value={password2}
          onChange={(e) => setPassword2(e.target.value)} 
         />
+        <div>
+          <button
+            onClick={handleRegister}
+            className={`bg-[#2596be] w-full align-center p-2 rounded-xl font-bold text-xl text-white hover:bg-[#2e6478] ${loading ? "cursor-not-allowed bg-[#206178]":"cursor-pointer"}`}
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Registering..." : "Register"} 
+          </button>
+        </div>
+        <p>
+          Do you have an Account?
+           <Link
+            to={'/login'}
+           >
+            <span>Login</span>
+          </Link>
+        </p>
       </form>
     </div>
   )

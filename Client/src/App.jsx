@@ -1,5 +1,6 @@
 import Welcome from "./Pages/Welcome"
 import Register from "./Pages/Register"
+import Login from "./Pages/Login"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/register" element={<Register />}/>
+        <Route path="/login" element={<Login />}/>
       </Routes>
     </Router>
  )
