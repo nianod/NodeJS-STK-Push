@@ -1,12 +1,16 @@
 @import 'tailwindcss';
 
 :root {
-  --backgound : #2596be;
-  --shadow: 0 0 10px rgba(0,0,0,0.5)
+  --backgound : #1e5366;
+  --shadow: 0 0 10px rgba(0,0,0,0.5);
+  --formbg: #e7e7e7;
 }
 body {
-  background-color: #2596be;
+  background-color: var(--backgound)
 }
 .register {
   box-shadow: var(--shadow);
+}
+.bge {
+  background: var(--formbg);
 }
