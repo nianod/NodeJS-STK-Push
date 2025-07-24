@@ -63,7 +63,7 @@ const STK = () => {
         <div className="mt-3 m-auto">
         <button
            className={`relative px-6 py-3 font-semibold border-2 border-black overflow-hidden group rounded ${loading ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
-           onSubmit={pay}  
+           onClick={pay}  
         >
           <span className="absolute inset-0 bg-black translate-x-[-100%] group-hover:translate-x-0 rounded-full transition-transform duration-400"></span>
           <span className="relative z-10 text-black group-hover:text-white transition-colors duration-400">
