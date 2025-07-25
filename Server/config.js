@@ -3,6 +3,6 @@ const config = {
     consumerSecret : "O5shZa1XB2d55XMbJRYnJdsvwtH2XqPvMB3Ff9P0E5nefyfkQeUaoRRcG77WMnAt",
     shortCode: "174379",
     lipaNaMpesaKey : "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",
-    callbackUrl : ""
+    callbackUrl : "https://webhook.site/003c4e4a-a372-4c4a-87b4-30e219f2eaad"
 }
 module.exports = config

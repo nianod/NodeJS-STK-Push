@@ -3,6 +3,8 @@ const stkPush = require('./stkPush')
 const app = express()
 const PORT = 3000
 
+app.use(express.json())
+
 app.post('/stk-push', (req, res) => {
     const amount = req.body.amount
     const phoneNumber = req.body.phoneNumber
@@ -12,7 +14,7 @@ app.post('/stk-push', (req, res) => {
         res.send('STK push Successfully')
     }) .catch((error) => {
         console.error('Error initiating payment', error)
-        res.status(500).send('Error occurred')
+        res.status(500).send('Error occurred here brother')
     })
 })
 

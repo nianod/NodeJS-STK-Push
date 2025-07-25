@@ -1,6 +1,6 @@
 const axios = require('axios');
 const config = require('./config');
-const getAccessToken = require('./auth');
+const getAccessToken = require('./index');
 
 const stkPush = async(amount, phoneNumber) => {
   const accessToken = await getAccessToken();
@@ -11,7 +11,7 @@ const stkPush = async(amount, phoneNumber) => {
     'businessShortCode': config.businessShortCode,
     'password': password,
     'timestamp': timestamp,
-    'TransactionType': 'CustomerBuyGooodsOnline',
+    'TransactionType': 'CustomerBuyGoodsOnline',
     'Amount': amount,
     'PartyA':phoneNumber,
     'PartyB': config.businessShortCode,
@@ -22,7 +22,7 @@ const stkPush = async(amount, phoneNumber) => {
   }, {
     headers: {
       'Authorization':`Bearer ${accessToken}`,
-      'Content-Type': 'Application/json',
+      'Content-Type': 'application/json',
     }
   })
 
